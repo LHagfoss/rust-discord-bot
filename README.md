@@ -1,3 +1,5 @@
+![IMage](image.png)
+
 This project is a simple Discord bot written in Rust. 
 
 ### Key Technologies and Crates Used:
