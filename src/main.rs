@@ -1,11 +1,10 @@
 mod commands;
 
-use commands::{about::*, ping::*, time::*};
+use commands::{about::*, clankerize::*, ping::*, time::*};
 use dotenv::dotenv;
 use poise::serenity_prelude as serenity;
 use std::env;
-use tracing::{info, error};
-use tracing_subscriber;
+use tracing::{error, info};
 
 pub struct Data {}
 pub type Error = Box<dyn std::error::Error + Send + Sync>;
@@ -25,7 +24,7 @@ async fn main() {
 
     let framework = poise::Framework::builder()
         .options(poise::FrameworkOptions {
-            commands: vec![ping(), about(), time()],
+            commands: vec![ping(), about(), time(), clankerize()],
             pre_command: |ctx| {
                 Box::pin(async move {
                     info!("Executing command: {}", ctx.command().name);
